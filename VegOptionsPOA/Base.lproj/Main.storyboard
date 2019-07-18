@@ -44,17 +44,67 @@
             </objects>
             <point key="canvasLocation" x="-268" y="764"/>
         </scene>
-        <!--View Controller-->
+        <!--PlacesViewController-->
         <scene sceneID="mhj-M5-XvF">
             <objects>
-                <viewController id="Vvw-hx-pj9" sceneMemberID="viewController">
+                <viewController title="PlacesViewController" id="Vvw-hx-pj9" customClass="ViewController" customModule="VegOptionsPOA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hzp-rT-Pl2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gpV-xN-sDm">
+                                <rect key="frame" x="0.0" y="64" width="414" height="56"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Vvw-hx-pj9" id="mSh-pD-4sD"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZyS-kB-0SE">
+                                <rect key="frame" x="0.0" y="120" width="414" height="693"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="placeCell" textLabel="keP-Ai-8hY" style="IBUITableViewCellStyleDefault" id="UyM-qn-jvw">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UyM-qn-jvw" id="60A-5X-mEk">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="keP-Ai-8hY">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Vvw-hx-pj9" id="j4S-J1-gLV"/>
+                                    <outlet property="delegate" destination="Vvw-hx-pj9" id="ysA-RO-oq3"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZyS-kB-0SE" firstAttribute="top" secondItem="gpV-xN-sDm" secondAttribute="bottom" id="4vJ-iE-hpB"/>
+                            <constraint firstItem="gpV-xN-sDm" firstAttribute="trailing" secondItem="0pZ-g7-z1H" secondAttribute="trailing" id="NaZ-KU-bO7"/>
+                            <constraint firstItem="gpV-xN-sDm" firstAttribute="top" secondItem="0pZ-g7-z1H" secondAttribute="top" constant="20" id="QcR-id-BHA"/>
+                            <constraint firstItem="gpV-xN-sDm" firstAttribute="leading" secondItem="0pZ-g7-z1H" secondAttribute="leading" id="W7p-ni-hz7"/>
+                            <constraint firstItem="0pZ-g7-z1H" firstAttribute="bottom" secondItem="ZyS-kB-0SE" secondAttribute="bottom" id="j5F-9Z-AsC"/>
+                            <constraint firstItem="0pZ-g7-z1H" firstAttribute="trailing" secondItem="ZyS-kB-0SE" secondAttribute="trailing" id="p5z-n2-79c"/>
+                            <constraint firstItem="ZyS-kB-0SE" firstAttribute="leading" secondItem="0pZ-g7-z1H" secondAttribute="leading" id="ur8-wb-Zp9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0pZ-g7-z1H"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" systemItem="featured" id="PDh-NB-sbk"/>
+                    <connections>
+                        <outlet property="searchBar" destination="gpV-xN-sDm" id="y8k-5Y-ht1"/>
+                        <outlet property="tableView" destination="ZyS-kB-0SE" id="lLi-OR-a7v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htA-8v-gQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
